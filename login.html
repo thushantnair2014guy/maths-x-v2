@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MATHS X — Login</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="centered-card mx-panel">
+    <div class="logo-wrap mx-brand">
+      <img src="assets/logo.png" alt="MATHS X logo" class="brand-logo">
+      <div>
+        <h1 class="big-title">MATHS X</h1>
+        <div class="muted small">Year 5 — Ratio · Proportion · Area · Volume</div>
+      </div>
+    </div>
+
+    <label class="muted small" for="username">Warrior name</label>
+    <input id="username" class="input" placeholder="e.g. Thushant" maxlength="20" />
+
+    <div class="row">
+      <button id="loginBtn" class="btn primary">Enter Arena</button>
+      <button id="themeToggle" class="btn outline">Toggle Theme</button>
+    </div>
+
+    <p class="muted tiny">Demo login — stored locally in your browser.</p>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // login bindings
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const u = document.getElementById('username').value.trim() || 'Guest';
+      localStorage.setItem('mx_user', u);
+      // reset daily flag so new users see fresh daily challenge if implemented
+      localStorage.setItem('mx_last_visit', new Date().toISOString());
+      window.location.href = 'index.html';
+    });
+    document.getElementById('themeToggle').addEventListener('click', () => toggleTheme());
+    document.getElementById('username').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('loginBtn').click();
+    });
+  </script>
+</body>
+</html>
