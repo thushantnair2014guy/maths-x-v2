@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MATHS X — Proportion</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav mx-panel small-nav">
+    <div class="nav-left mx-brand">
+      <img src="assets/logo.png" class="nav-logo" alt="MATHS X logo">
+      <div>
+        <div class="site-title">MATHS X</div>
+        <div class="site-sub muted">Proportion</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button onclick="history.back()" class="btn outline small">Back</button>
+      <button id="themeBtnP" class="btn small outline">Toggle</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Proportion — Practice</h2>
+
+    <section class="lesson card mx-panel">
+      <h3>Notes</h3>
+      <p>
+        A proportion is an equation that shows two ratios are equal.
+        Example: 2:3 = 4:6. If 2 pens cost RM4, then 1 pen costs RM2, so 5 pens cost 5 × RM2 = RM10.
+      </p>
+      <p class="muted">Key idea: use equivalent ratios or unit rates.</p>
+    </section>
+
+    <section class="quiz card mx-panel" data-topic="Proportion">
+      <h3>Quiz</h3>
+      <div id="qbox" class="muted">Loading...</div>
+      <div id="opts"></div>
+      <div id="feedback" class="muted" style="margin-top:10px"></div>
+      <div class="row" style="margin-top:12px">
+        <button id="nextBtn" class="btn primary">Next</button>
+        <button id="finishBtn" class="btn outline">Finish</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('themeBtnP').addEventListener('click', toggleTheme);
+    initTopic('Proportion');
+  </script>
+</body>
+</html>
