@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MATHS X — Volume</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav mx-panel small-nav">
+    <div class="nav-left mx-brand">
+      <img src="assets/logo.png" class="nav-logo" alt="MATHS X logo">
+      <div>
+        <div class="site-title">MATHS X</div>
+        <div class="site-sub muted">Volume</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button onclick="history.back()" class="btn outline small">Back</button>
+      <button id="themeBtnV" class="btn small outline">Toggle</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Volume — Practice</h2>
+
+    <section class="lesson card mx-panel">
+      <h3>Notes</h3>
+      <p>
+        Volume measures space inside a 3D object.
+        - Cube: <strong>V = side³</strong>  
+        - Cuboid: <strong>V = length × width × height</strong>  
+        Units: cm³, m³, etc.
+      </p>
+      <p class="muted">Keep units consistent when multiplying.</p>
+    </section>
+
+    <section class="quiz card mx-panel" data-topic="Volume">
+      <h3>Quiz</h3>
+      <div id="qbox" class="muted">Loading...</div>
+      <div id="opts"></div>
+      <div id="feedback" class="muted" style="margin-top:10px"></div>
+      <div class="row" style="margin-top:12px">
+        <button id="nextBtn" class="btn primary">Next</button>
+        <button id="finishBtn" class="btn outline">Finish</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('themeBtnV').addEventListener('click', toggleTheme);
+    initTopic('Volume');
+  </script>
+</body>
+</html>
