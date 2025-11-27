@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MATHS X — Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav mx-panel">
+    <div class="nav-left mx-brand">
+      <img src="assets/logo.png" alt="logo" class="nav-logo">
+      <div>
+        <div class="site-title">MATHS X</div>
+        <div class="site-sub muted">Year 5 — Ratio · Proportion · Area · Volume</div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <div id="welcomeUser" class="muted small"></div>
+      <button id="themeBtn" class="btn small outline">Toggle</button>
+      <button id="logoutBtn" class="btn small">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero esports-hero mx-panel">
+      <div class="hero-left">
+        <h2>Train like a Math Warrior</h2>
+        <p class="muted">Daily quests, instant quizzes, XP & ranks — focused on Year 5 topics.</p>
+        <div class="cta-row">
+          <a class="btn primary large" href="ratio.html">Start Ratio</a>
+          <a class="btn ghost large" href="#topics">See Topics</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="shield-ani">
+          <img src="assets/logo.png" alt="logo" class="big-logo">
+        </div>
+      </div>
+    </section>
+
+    <section id="topics" class="card-grid">
+      <article class="topic-card mx-panel" data-page="ratio.html">
+        <h3>Ratio</h3>
+        <p>Compare quantities, simplify ratios, word problems.</p>
+        <a href="ratio.html" class="btn small primary">Practice</a>
+      </article>
+
+      <article class="topic-card mx-panel" data-page="proportion.html">
+        <h3>Proportion</h3>
+        <p>Equivalent ratios & solving proportion problems.</p>
+        <a href="proportion.html" class="btn small primary">Practice</a>
+      </article>
+
+      <article class="topic-card mx-panel" data-page="area.html">
+        <h3>Area</h3>
+        <p>Squares, rectangles & composite shapes.</p>
+        <a href="area.html" class="btn small primary">Practice</a>
+      </article>
+
+      <article class="topic-card mx-panel" data-page="volume.html">
+        <h3>Volume</h3>
+        <p>Cubes, cuboids & unit cube problems.</p>
+        <a href="volume.html" class="btn small primary">Practice</a>
+      </article>
+    </section>
+
+    <section class="info">
+      <div class="info-left mx-panel">
+        <h4>Daily Challenge</h4>
+        <p class="muted">Complete the daily quest to earn bonus XP. (Demo: click Practice on any topic.)</p>
+      </div>
+      <div class="info-right mx-panel">
+        <h4>Leaderboard (Local)</h4>
+        <ol id="leaderboard" class="muted small"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer mx-panel">
+    <span>© MATHS X — Built by King Thushant & Team</span>
+    <span class="muted">Esports D1 — Blue × Neon Red</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // page init
+    document.getElementById('welcomeUser').textContent = localStorage.getItem('mx_user') || 'Guest';
+    document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('mx_user');
+      window.location.href = 'login.html';
+    });
+    // populate leaderboard (combined topics)
+    (function renderCombinedLB(){
+      const raw = JSON.parse(localStorage.getItem('mx_lb_all') || '[]');
+      const ol = document.getElementById('leaderboard');
+      if(!raw.length) ol.innerHTML = '<li class="muted">No scores yet — be first!</li>';
+      else ol.innerHTML = raw.slice(0,5).map(p => `<li>${escapeHtml(p.name)} — ${p.score} XP</li>`).join('');
+    })();
+  </script>
+</body>
+</html>
