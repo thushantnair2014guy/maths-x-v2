@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MATHS X — Area</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav mx-panel small-nav">
+    <div class="nav-left mx-brand">
+      <img src="assets/logo.png" class="nav-logo" alt="MATHS X logo">
+      <div>
+        <div class="site-title">MATHS X</div>
+        <div class="site-sub muted">Area</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button onclick="history.back()" class="btn outline small">Back</button>
+      <button id="themeBtnA" class="btn small outline">Toggle</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Area — Practice</h2>
+
+    <section class="lesson card mx-panel">
+      <h3>Notes</h3>
+      <p>
+        Area measures the size of a 2D surface.
+        - Rectangle: <strong>Area = length × width</strong>  
+        - Triangle: <strong>Area = ½ × base × height</strong>  
+        - Composite shapes: split into simple shapes and add areas.
+      </p>
+      <p class="muted">Remember units (e.g. cm²).</p>
+    </section>
+
+    <section class="quiz card mx-panel" data-topic="Area">
+      <h3>Quiz</h3>
+      <div id="qbox" class="muted">Loading...</div>
+      <div id="opts"></div>
+      <div id="feedback" class="muted" style="margin-top:10px"></div>
+      <div class="row" style="margin-top:12px">
+        <button id="nextBtn" class="btn primary">Next</button>
+        <button id="finishBtn" class="btn outline">Finish</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('themeBtnA').addEventListener('click', toggleTheme);
+    initTopic('Area');
+  </script>
+</body>
+</html>
